@@ -265,8 +265,8 @@ perf::RecordFileWriter::generate_module_records(std::vector<SymbolResolver::Modu
     auto ino_generation = static_cast<std::uint64_t>(0UL);
 
     if (struct stat file_stat{}; ::stat(module.path().c_str(), &file_stat) == 0) {
-      device_major = static_cast<std::uint32_t>(::major(file_stat.st_dev));
-      device_minor = static_cast<std::uint32_t>(::minor(file_stat.st_dev));
+      device_major = static_cast<std::uint32_t>(major(file_stat.st_dev));
+      device_minor = static_cast<std::uint32_t>(minor(file_stat.st_dev));
       ino = static_cast<std::uint64_t>(file_stat.st_ino);
     }
 
